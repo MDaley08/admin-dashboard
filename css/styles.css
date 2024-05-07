@@ -1,0 +1,59 @@
+:root{
+    --main-color: rgba(255,255,255,255);
+    --accent-color: rgba(25,146,212,255);
+}
+
+body{
+    display: grid;
+    margin: 0;
+    min-width: 100vw;
+    min-height: 100vh;
+}
+header{
+    grid-column: 2 / 3;
+}
+
+header #nav{
+    display: flex;
+}
+header #nav ul{
+    display: flex;
+    list-style: none;
+}
+aside{
+    background-color: var(--accent-color);
+    grid-column: 1 / 2;
+    grid-row: 1 / span 4;
+}
+
+#menu ul{
+}
+
+#menu li{
+    display: flex;
+}
+
+#menu li p{
+    color: var(--main-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+#menu svg{
+    fill: var(--main-color);
+    height: 1.1rem;
+    width: auto;
+    vertical-align: middle;
+}
+
+main{
+    background-color: rgba(226,232,240,255);
+    grid-row: 2 / span 3;
+}
+
+#projects{
+    display: grid;
+    grid-template-columns: repeat(2, 500px);
+}
+
