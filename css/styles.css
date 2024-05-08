@@ -3,11 +3,18 @@
     --accent-color: rgba(25,146,212,255);
 }
 
+@font-face {
+    font-family: roboto;
+    src: url(../fonts/Roboto-Regular.ttf);
+}
+
 body{
+    font-family: roboto;
     display: grid;
     margin: 0;
     min-width: 100vw;
     min-height: 100vh;
+    grid-template-columns: 1fr 4.5fr;
 }
 header{
     grid-column: 2 / 3;
@@ -20,31 +27,64 @@ header #nav ul{
     display: flex;
     list-style: none;
 }
+
+header svg{
+    fill: black;
+    height: 2rem;
+    width: auto;
+}
 aside{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 5px 0 0 25px;
+    color: var(--main-color);
+    font-size: 1.1rem;
+    font-weight: 600;
     background-color: var(--accent-color);
     grid-column: 1 / 2;
     grid-row: 1 / span 4;
 }
 
-#menu ul{
+#logo{
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    gap: 10px;
 }
 
-#menu li{
+#logo svg{
+    height: 2.5rem;
+    width: auto;
+}
+
+aside ul{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+aside li{
     display: flex;
 }
 
-#menu li p{
-    color: var(--main-color);
-    font-size: 1.1rem;
-    font-weight: 500;
+aside li p{
+
     margin: 0;
 }
-
-#menu svg{
+svg{
     fill: var(--main-color);
-    height: 1.1rem;
+}
+.menu svg{
+    height: 1.2rem;
     width: auto;
-    vertical-align: middle;
+    vertical-align: baseline;
+    margin-right: 20px;
+}
+
+.menu{
+    padding: 0;
 }
 
 main{
