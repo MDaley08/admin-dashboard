@@ -17,6 +17,18 @@ body{
     grid-template-columns: 1fr 4.2fr;
     grid-template-rows: .7fr 3fr;
 }
+button:hover{
+    scale: 1.1 1.1;
+    cursor: pointer;
+    opacity: .8;
+}
+
+.profile-pic img{
+    border-radius: 50px;
+    object-fit: cover;
+    height: 45px;
+    width: 45px;
+}
 
 /* 
 ----------------------------------------------------------------
@@ -39,9 +51,17 @@ header svg{
     width: auto;
 }
 
-header .nav{
-    padding: 0 80px 0 50px;
+header svg:hover{
+    scale: 1.1 1.1;
+    opacity: .9;
+    cursor: pointer;
+}
 
+header .nav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 80px 0 50px;
 }
 
 header #nav ul{
@@ -49,6 +69,21 @@ header #nav ul{
     list-style: none;
 }
 
+header #search-bar{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header #search-bar input[type=text]{
+    width: 27rem;
+    height: 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    padding: 6px 0 6px 10px;
+    border-style: none;
+    background-color: var(--accent-color-2);
+}
 
 header #project-buttons{
     display: flex;
@@ -60,11 +95,7 @@ header #project-buttons{
     list-style: none;
     gap: 30px;
 }
-/* 
-----------------------------------------------------------------
-    Header section styling
-----------------------------------------------------------------
- */
+
 header #project-buttons button{
     display: flex;
     justify-content: center;
@@ -78,64 +109,43 @@ header #project-buttons button{
     background-color: var(--accent-color-1);
 }
 
-#search-bar{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-#search-bar input[type=text]{
-    width: 27rem;
-    height: 1rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    padding: 6px 0 6px 10px;
-    border-style: none;
-    background-color: var(--accent-color-2);
-}
-
-#user-profile{
+header #user-profile{
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-#user-profile h6{
+header #user-profile h6{
     margin: 0 0 8px;
 }
 
-#user-profile h3{
+header #user-profile h3{
     margin: 0;
 }
 
-#user-profile img{
+header #user-profile img{
     border-radius: 50px;
     object-fit: cover;
     height: 60px;
     width: 60px;
 }
-.profile-pic {
+header .profile-pic {
     display: flex;
     align-items: center;
     gap: 22px;
 }
 
-.profile-pic * {
+header .profile-pic * {
     margin: 0;
 }
 
-.profile-pic img{
+header .profile-pic img{
     border-radius: 50px;
     object-fit: cover;
     height: 45px;
     width: 45px;
 }
 
-.nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
 /* 
 ----------------------------------------------------------------
     Sidebar section styling
@@ -145,13 +155,13 @@ aside{
     display: flex;
     flex-direction: column;
     gap: 30px;
-    padding: 0.5rem 1.2rem ;
+    padding: 0.8rem 1.2rem ;
     color: var(--main-color);
     font-size: 0.9rem;
     font-weight: 600;
     background-color: var(--accent-color-1);
     grid-column: 1 / 2;
-    grid-row: 1 / 3;
+    grid-row: 1 / 4;
 }
 
 aside ul{
@@ -162,6 +172,12 @@ aside ul{
 
 aside li{
     display: flex;
+    width: fit-content;
+}
+
+aside li:hover{
+    scale: 1.05 1.05;
+    cursor: pointer;
 }
 
 aside li p{
@@ -177,6 +193,11 @@ aside svg{
     align-items: center;
     font-size: 1.3rem;
     gap: 8px;
+    cursor: pointer;
+}
+
+#logo * {
+    margin: 0;
 }
 
 #logo svg{
@@ -186,6 +207,7 @@ aside svg{
 
 .menu{
     padding: 0;
+    box-sizing: border-box;
 }
 
 .menu svg{
@@ -208,7 +230,7 @@ main{
     background-color: var(--accent-color-2);
     padding:  0 30px 50px;
     grid-column: 2 / 3;
-    grid-row: 2 / 3;
+    grid-row: 2 / 4;
 }
 
 main p{
@@ -216,16 +238,52 @@ main p{
     font-size: 0.9rem;
     font-weight: 500;
 }
+
  #projects{
-    max-height: 100%;
     grid-column:  1 / 2;
     grid-row: 1 / 3;
  }
+
 #project-grid{
     display: grid;
+    box-sizing: border-box;
     gap: 25px;
     grid-template-columns: repeat(2, 1fr);
-    grid-auto-rows: minmax(39.5%, 1fr);
+    grid-template-rows: repeat(auto-fit, 2fr);
+}
+
+#project-grid .card{
+    display: flex;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
+    flex-direction: column;
+    background-color: white;
+    border-left: 8px solid #f0b429;
+    border-radius: 5px;
+    padding: 30px 20px;
+}
+
+#project-grid .card *{
+    margin: 0;
+}
+
+#project-grid .card p{
+    color: rgba(99,99,99,255);
+    font-size: .9rem;
+    margin-bottom: 16px;
+}
+
+#project-grid .card .project-icons{
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    align-self: flex-end;
+}
+
+#project-grid .card button{
+    background-color: var(--accent-color-2);
+    border: 1px solid rgba(0, 0, 0, 0.237);
+    border-radius: 5px;
+    font-size: 0.8rem;
 }
 
 #announcements{
@@ -236,9 +294,14 @@ main p{
     grid-row: 1/ 2;
 }
 
+#announcements p{
+    text-align: center;
+}
+
 #announcements #announcements-topics{
     display: flex;
     flex-direction: column;
+    box-sizing: border-box;
     background-color: white;
     border-radius: 5px;
     padding: 30px;
@@ -246,8 +309,23 @@ main p{
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-#announcements p{
-    text-align: center;
+
+
+#announcements #announcements-topics {
+    color: rgba(99,99,99,255);
+    font-size: .75rem;
+}
+
+#announcements #announcements-topics h5{
+    color: black;
+    margin: 0;
+    font-size: .75rem;
+}
+
+#announcements #announcements-topics :not(:last-child){
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+    
 }
 
 #trending{
@@ -258,8 +336,14 @@ main p{
     grid-row: 2 / 3;
 }
 
+#trending + p{
+    text-align: center;
+    
+}
+
 #trending #trending-topics{
     display: flex;
+    box-sizing: border-box;
     flex-direction: column;
     background-color: white;
     border-radius: 5px;
@@ -268,26 +352,6 @@ main p{
     box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
 }
 
-#trending + p{
-    text-align: center;
-    
-}
-
-
-
-.card{
-    display: flex;
-    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.25);
-    flex-direction: column;
-    background-color: white;
-    border-left: 8px solid #f0b429;
-    border-radius: 5px;
-    padding: 30px 20px;
-}
-
-.card *{
-    margin: 0;
-}
 .user{
     display: flex;
     color: rgba(99,99,99,255);
@@ -303,11 +367,10 @@ main p{
 .user .info p{
     font-size: 0.85rem;
 }
+
 .user .info :first-child {
     color: black;
 }
-
-
 
 .user img{
     border-radius: 50px;
